@@ -1,31 +1,597 @@
 <!DOCTYPE html>
-<html lang="zh-TW">
-  <head>
-    <!-- 萬國碼編碼方式 -->
-    <meta charset="UTF-8" />
-    <title>我的第一個網頁設計檔案</title>
-    <!-- 相容性宣告，模擬使用最新版本的標準模式瀏覽 -->
-    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
-    <meta name="description" content="網站描述" />
-    <meta name="keywords" content="關鍵字1,關鍵字2" />
-    <meta name="author" content="作者名稱" />
-    <!-- 讓手機版可以自動放大內容檢視：initial-scale是初始放大程度；minimum-scale是最小放大程度；user-scalable = 0 / 1 是 User 不可縮放 / 可縮放 -->
-    <meta
-      name="viewport"
-      content="width=device-width, initial-scale=1, minimum-scale=1, user-scalable=1"
-    />
-    <!-- 瀏覽器頁籤上的小圖示 -->
-    <link rel="icon" type="image/x-icon" href="favicon/favicon.ico" />
-    <!-- 由外部嵌入的 CSS 檔案，通常寫在 head 中最後一行 -->
-    <link rel="stylesheet" type="text/css" href="css/style.css" />
-  </head>
-  <body>
-    我的第一個網頁設計檔案內容
-    <!-- 直接寫在 HTML 文件中的 CSS 樣式，用<style>雙標籤包入 -->
-    <style></style>
-    <!-- 直接寫在 HTML 文件中的 JS 內容，用<script>雙標籤包入 -->
-    <script></script>
-    <!-- 由外部嵌入的 JS 檔案，通常寫在 body 中最後一行 -->
-    <script src="js/main.js"></script>
-  </body>
+<html lang="zh">
+
+<head>
+    <base href="*" />
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="Description" content="Even if I am a little cog,I still want to make the world beautiful.即使是個小螺絲，也要把世界變美。.Alani portfolio { Web RWD Design; APP Design; UI Design; AI Painting; Other; }" />
+    <meta property="og:url" content="index.html" />
+    <meta property="og:locale" content="zh" />
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="Alani Syu Portfolio" />
+    <meta property="og:description" content="Even if I am a little cog,I still want to make the world beautiful.即使是個小螺絲，也要把世界變美。.Alani portfolio { Web RWD Design; APP Design; UI Design; AI Painting; Other; }" />
+    <meta property="og:image" content="./static/images/og-image.jpg" />
+
+    <link rel="icon" type="image/png" href="./assets/favicon-96x96.png" sizes="96x96" />
+    <link rel="icon" type="image/svg+xml" href="./assets/favicon.svg" />
+    <link rel="shortcut icon" href="./assets/favicon.ico" />
+    <link rel="apple-touch-icon" sizes="180x180" href="./assets/apple-touch-icon.png" />
+    <meta name="apple-mobile-web-app-title" content="Alani Syu" />
+    <link rel="manifest" href="./assets/site.webmanifest" />
+
+    <title>Alani Syu Portfolio</title>
+  <script type="module" crossorigin src="./assets/index2.js"></script>
+  <link rel="stylesheet" crossorigin href="./assets/index.css">
+</head>
+
+<body>
+    <div id="main-body static">
+        <header class="fixed top-0 left-0 w-full z-50 ">
+    <nav class="flex items-center justify-between p-3.75 lg:px-6 lg:py-7">
+        <div class="flex items-center space-x-4">
+            <a href="index.html#kv-section" class="font-abhaya text-3xl lg:text-[40px]">
+                Alani Syu
+            </a>
+            <span class="site-title px-4 border-l-1 border-dark-500">PORTFOLIO</span>
+        </div>
+        <!-- PC -->
+        <ul class="items-center space-x-12 hidden lg:flex">
+            <li><a href="index.html#kv-section" class="transition duration-200 ease-in hover:text-primary">HOME</a></li>
+            <li><a href="index.html#about-section" class="transition duration-200 ease-in hover:text-primary">ABOUT
+                    ME</a></li>
+            <li><a href="index.html#experience-section"
+                    class="transition duration-200 ease-in hover:text-primary">EXPERIENCE</a>
+            </li>
+            <li><a href="index.html#works-section" class="transition duration-200 ease-in hover:text-primary">WORKS
+                    COLLECTION</a>
+            </li>
+            <li>
+                <a href="mailto:syu3n1118@gmail.com" target="_blank"
+                    class="transition duration-200 ease-in font-roboto text-sm rounded-full bg-primary text-white py-2.5 px-4 inline-block border-1 border-transparent hover:text-primary hover:bg-white hover:border-1 hover:border-primary">
+                    SEND EMAIL
+                </a>
+            </li>
+        </ul>
+        <!-- Mobile -->
+        <button id="menu-btn" class="lg:hidden flex flex-col justify-center items-center w-10 h-10"
+            aria-label="Open menu">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" class="w-6 h-6">
+                <path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
+                    stroke-width="1.5" d="M4 5h16M4 12h16M4 19h16" color="currentColor" />
+            </svg>
+        </button>
+    </nav>
+    <!-- Mobile Menu -->
+    <div id="mobile-menu-overlay" class="fixed inset-0 bg-pop-up-bg/50 z-50"></div>
+    <aside id="mobile-menu"
+        class="fixed top-0 right-0 h-full w-[64vw] max-w-[340px] bg-white z-50 shadow-lg translate-x-full transition-transform duration-300 ease-in-out">
+        <div class="flex justify-end p-6">
+            <button id="close-menu-btn" class="w-8 h-8 flex items-center justify-center" aria-label="Close menu">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" class="w-6 h-6">
+                    <path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
+                        stroke-width="1.5" d="M19 5L5 19M5 5l14 14" color="currentColor" />
+                </svg>
+            </button>
+        </div>
+        <ul class="flex flex-col">
+            <li class="py-7.5 border-b-1 border-dark/10"><a href="index.html#kv-section"
+                    class="font-abhaya lg:font-roboto text-[26px] lg:text-base px-5">Home</a></li>
+            <li class="py-7.5 border-b-1 border-dark/10"><a href="index.html#about-section"
+                    class="font-abhaya lg:font-roboto text-[26px] lg:text-base px-5">About Me</a></li>
+            <li class="py-7.5 border-b-1 border-dark/10"><a href="index.html#experience-section"
+                    class="font-abhaya lg:font-roboto text-[26px] lg:text-base px-5">Experience</a></li>
+            <li class="py-7.5 border-b-1 border-dark/10"><a href="index.html#works-section"
+                    class="font-abhaya lg:font-roboto text-[26px] lg:text-base px-5">Works Collection</a></li>
+            <li class="py-7.5 flex justify-between items-center  px-5">
+                <a href="mailto:syu3n1118@gmail.com" target="_blank"
+                    class="font-abhaya lg:font-roboto text-[26px] lg:text-base">
+                    Send Email
+                </a>
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" class="w-6 h-6">
+                    <g fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
+                        stroke-width="1.5" color="currentColor">
+                        <path d="m7 8.5l2.942 1.74c1.715 1.014 2.4 1.014 4.116 0L17 8.5" />
+                        <path
+                            d="M2.016 13.476c.065 3.065.098 4.598 1.229 5.733c1.131 1.136 2.705 1.175 5.854 1.254c1.94.05 3.862.05 5.802 0c3.149-.079 4.723-.118 5.854-1.254c1.131-1.135 1.164-2.668 1.23-5.733c.02-.986.02-1.966 0-2.952c-.066-3.065-.099-4.598-1.23-5.733c-1.131-1.136-2.705-1.175-5.854-1.254a115 115 0 0 0-5.802 0c-3.149.079-4.723.118-5.854 1.254c-1.131 1.135-1.164 2.668-1.23 5.733a69 69 0 0 0 0 2.952" />
+                    </g>
+                </svg>
+            </li>
+        </ul>
+    </aside>
+</header>
+
+        
+<main class="main-page">
+	<!-- KV -->
+	<section id="kv-section" class="static w-full h-[100vh]  flex justify-items-center items-center">
+		<div class="background-video">
+			<div class="absolute w-full h-full bg-[#EFECF733]/20 z-1"></div>
+			<video autoplay muted loop playsinline class="w-full h-full object-cover">
+				<source src="./assets/home-topbanner.mp4" type="video/mp4">
+				Your browser does not support the video tag.
+			</video>
+		</div>
+		<div class="container">
+			<div class="text-center">
+				<img src="data:image/svg+xml,%3csvg%20width='28'%20height='23'%20viewBox='0%200%2028%2023'%20fill='none'%20xmlns='http://www.w3.org/2000/svg'%3e%3cpath%20d='M28%207.5933C27.8476%2012.7289%2025.3714%2017.8644%2020.5714%2023L18.1714%2021.3493C21.3714%2018.1212%2023.0095%2015.4801%2023.0857%2013.4258C23.0095%2012.5455%2022.0952%2011.8852%2020.3429%2011.445C19.9619%2011.3716%2019.581%2011.2616%2019.2%2011.1148C16.6857%2010.1611%2015.4286%208.437%2015.4286%205.94258C15.4286%205.0622%2015.619%204.2185%2016%203.41148C17.0667%201.13716%2018.8571%200%2021.3714%200C22.1333%200%2022.8952%200.110048%2023.6571%200.330144C26.5524%201.28389%2028%203.70494%2028%207.5933ZM12.4571%207.5933C12.3048%2012.8756%209.82857%2018.0112%205.02857%2023L2.74286%2021.3493C5.86667%2018.0478%207.46667%2015.4067%207.54286%2013.4258C7.46667%2012.5455%206.59048%2011.8852%204.91429%2011.445C4.60952%2011.3716%204.26667%2011.2982%203.88571%2011.2249C1.29524%2010.2711%200%208.51037%200%205.94258C0%205.13557%200.152381%204.32855%200.457143%203.52153C1.44762%201.17384%203.2381%200%205.82857%200C6.59048%200%207.35238%200.110048%208.11429%200.330144C11.0095%201.28389%2012.4571%203.70494%2012.4571%207.5933Z'%20fill='%231C1C1C'/%3e%3c/svg%3e" alt="semicolon" class="w-[28px] mt-4 lg:mt-23 mx-auto mb-8"
+					loading="lazy">
+				<h1 class="font-abhaya text-4xl lg:text-6xl mb-5 lg:leading-18">Even if I am a little cog,<br>
+					I still want to make the world beautiful.</h1>
+				<p class="font-roboto text-base lg:text-xl mb-7">.Alani portfolio { Web RWD Design; APP Design; UI
+					Design; AI
+					Painting; Other; }</p>
+			</div>
+		</div>
+		<div class="absolute bottom-12 lg:bottom-15 left-0 right-0 text-center">
+			<a href="index.html#about-section">
+				<img src="data:image/svg+xml,%3csvg%20width='54'%20height='26'%20viewBox='0%200%2054%2026'%20fill='none'%20xmlns='http://www.w3.org/2000/svg'%3e%3cg%20clip-path='url(%23clip0_1235_7741)'%3e%3cpath%20d='M25.6547%2024.777L0.948904%202.31719C0.0617948%201.51072%201.08631%200.110673%202.12335%200.712247L25.9965%2014.5607C26.6171%2014.9207%2027.3829%2014.9207%2028.0035%2014.5607L51.8767%200.712244C52.9137%200.11067%2053.9382%201.51071%2053.0511%202.31718L28.3453%2024.777C27.5825%2025.4705%2026.4175%2025.4705%2025.6547%2024.777Z'%20fill='%231C1C1C'/%3e%3c/g%3e%3cdefs%3e%3cclipPath%20id='clip0_1235_7741'%3e%3crect%20width='54'%20height='26'%20fill='white'/%3e%3c/clipPath%3e%3c/defs%3e%3c/svg%3e" alt="icon-down" class="icon-down w-[54px] mx-auto mb-8"
+					loading="lazy">
+				<p class="text-xs">SCROLL DOWN</p>
+			</a>
+		</div>
+	</section>
+	<!-- about -->
+	<section id="about-section" class="relative w-full bg-white flex flex-col justify-items-center items-center">
+		<div class="text-wrapper absolute top-40 z-0 select-none w-full">
+			<div class="bg-text font-roboto font-semibold text-[180px] text-decorative">As a goldfish in this world,
+				each time I open my eyes, I see a brand new day full of wonder.</div>
+			<div class="bg-text font-roboto font-semibold text-[180px] text-decorative">As a goldfish in this world,
+				each time I open my eyes, I see a brand new day full of wonder.</div>
+		</div>
+		<div class="container static z-10">
+			<div class="text-center">
+				<img src="data:image/svg+xml,%3csvg%20width='28'%20height='23'%20viewBox='0%200%2028%2023'%20fill='none'%20xmlns='http://www.w3.org/2000/svg'%3e%3cpath%20d='M28%207.5933C27.8476%2012.7289%2025.3714%2017.8644%2020.5714%2023L18.1714%2021.3493C21.3714%2018.1212%2023.0095%2015.4801%2023.0857%2013.4258C23.0095%2012.5455%2022.0952%2011.8852%2020.3429%2011.445C19.9619%2011.3716%2019.581%2011.2616%2019.2%2011.1148C16.6857%2010.1611%2015.4286%208.437%2015.4286%205.94258C15.4286%205.0622%2015.619%204.2185%2016%203.41148C17.0667%201.13716%2018.8571%200%2021.3714%200C22.1333%200%2022.8952%200.110048%2023.6571%200.330144C26.5524%201.28389%2028%203.70494%2028%207.5933ZM12.4571%207.5933C12.3048%2012.8756%209.82857%2018.0112%205.02857%2023L2.74286%2021.3493C5.86667%2018.0478%207.46667%2015.4067%207.54286%2013.4258C7.46667%2012.5455%206.59048%2011.8852%204.91429%2011.445C4.60952%2011.3716%204.26667%2011.2982%203.88571%2011.2249C1.29524%2010.2711%200%208.51037%200%205.94258C0%205.13557%200.152381%204.32855%200.457143%203.52153C1.44762%201.17384%203.2381%200%205.82857%200C6.59048%200%207.35238%200.110048%208.11429%200.330144C11.0095%201.28389%2012.4571%203.70494%2012.4571%207.5933Z'%20fill='%231C1C1C'/%3e%3c/svg%3e" alt="semicolon" class="w-[28px] mt-23 mx-auto mb-8"
+					loading="lazy">
+				<div class="w-[113px] h-[113px] rounded-full overflow-hidden mx-auto mb-4">
+					<img src="./assets/home-s2-1-avatar.jpg" alt="avatar" loading="lazy">
+				</div>
+				<h2 class="font-abhaya text-4xl lg:text-[50px] mb-5">I'm Alani Syu.</h2>
+				<p class="font-roboto font-semibold text-xl lg:text-[22px] mb-8">即使是個小螺絲，也要把世界變美</p>
+				<p class="font-roboto text-sm lg:text-base max-w-[785px] mx-auto mb-14">作為 Web UI Designer，懂
+					Code，能與前端溝通；懂時程控管，能與 PM
+					協調時間；懂市場分析，制定視覺方向，能提高提案命中率。曾為公司爭取到多個大型專案，讓我們一起打造精彩的產品吧！</p>
+			</div>
+		</div>
+		<div class="bg-wrapper z-10 select-none mb-14">
+			<div class="bg-img h-[60px] lg:h-[80px]">
+				<img class="h-full object-cover" src="./assets/home-s2-2-poster.png" alt="poster" loading="lazy">
+			</div>
+			<div class="bg-img h-[60px] lg:h-[80px]">
+				<img class="h-full object-cover" src="./assets/home-s2-2-poster.png" alt="poster" loading="lazy">
+			</div>
+			<div class="bg-img h-[60px] lg:h-[80px]">
+				<img class="h-full object-cover" src="./assets/home-s2-2-poster.png" alt="poster" loading="lazy">
+			</div>
+		</div>
+	</section>
+	<!-- Experience -->
+	<section id="experience-section" class="relative w-full bg-linear-to-r from-[#F8F5FF] to-[#FBE6F3]">
+		<img class="absolute top-[30px] lg:top-[55px] right-[-7%] lg:right-[-2%] w-[265px] lg:w-[345px] select-none pointer-events-none"
+			src="data:image/svg+xml,%3csvg%20width='346'%20height='156'%20viewBox='0%200%20346%20156'%20fill='none'%20xmlns='http://www.w3.org/2000/svg'%3e%3ccircle%20cx='268.118'%20cy='77.6236'%20r='77.1236'%20stroke='url(%23paint0_linear_453_1369)'/%3e%3ccircle%20cx='172.871'%20cy='77.6236'%20r='77.1236'%20stroke='url(%23paint1_linear_453_1369)'/%3e%3ccircle%20cx='77.6236'%20cy='77.6236'%20r='77.1236'%20stroke='url(%23paint2_linear_453_1369)'/%3e%3cdefs%3e%3clinearGradient%20id='paint0_linear_453_1369'%20x1='190.494'%20y1='77.6236'%20x2='345.741'%20y2='77.6236'%20gradientUnits='userSpaceOnUse'%3e%3cstop%20stop-color='%23E4B7E8'/%3e%3cstop%20offset='1'%20stop-color='%23A6C2FD'/%3e%3c/linearGradient%3e%3clinearGradient%20id='paint1_linear_453_1369'%20x1='95.2471'%20y1='77.6236'%20x2='250.494'%20y2='77.6236'%20gradientUnits='userSpaceOnUse'%3e%3cstop%20stop-color='%23E4B7E8'/%3e%3cstop%20offset='1'%20stop-color='%23A6C2FD'/%3e%3c/linearGradient%3e%3clinearGradient%20id='paint2_linear_453_1369'%20x1='0'%20y1='77.6236'%20x2='155.247'%20y2='77.6236'%20gradientUnits='userSpaceOnUse'%3e%3cstop%20stop-color='%23E4B7E8'/%3e%3cstop%20offset='1'%20stop-color='%23A6C2FD'/%3e%3c/linearGradient%3e%3c/defs%3e%3c/svg%3e" alt="bg-svg" loading="lazy">
+		<div class="container py-23">
+			<div class="text-left mb-8">
+				<img src="data:image/svg+xml,%3csvg%20width='28'%20height='23'%20viewBox='0%200%2028%2023'%20fill='none'%20xmlns='http://www.w3.org/2000/svg'%3e%3cpath%20d='M28%207.5933C27.8476%2012.7289%2025.3714%2017.8644%2020.5714%2023L18.1714%2021.3493C21.3714%2018.1212%2023.0095%2015.4801%2023.0857%2013.4258C23.0095%2012.5455%2022.0952%2011.8852%2020.3429%2011.445C19.9619%2011.3716%2019.581%2011.2616%2019.2%2011.1148C16.6857%2010.1611%2015.4286%208.437%2015.4286%205.94258C15.4286%205.0622%2015.619%204.2185%2016%203.41148C17.0667%201.13716%2018.8571%200%2021.3714%200C22.1333%200%2022.8952%200.110048%2023.6571%200.330144C26.5524%201.28389%2028%203.70494%2028%207.5933ZM12.4571%207.5933C12.3048%2012.8756%209.82857%2018.0112%205.02857%2023L2.74286%2021.3493C5.86667%2018.0478%207.46667%2015.4067%207.54286%2013.4258C7.46667%2012.5455%206.59048%2011.8852%204.91429%2011.445C4.60952%2011.3716%204.26667%2011.2982%203.88571%2011.2249C1.29524%2010.2711%200%208.51037%200%205.94258C0%205.13557%200.152381%204.32855%200.457143%203.52153C1.44762%201.17384%203.2381%200%205.82857%200C6.59048%200%207.35238%200.110048%208.11429%200.330144C11.0095%201.28389%2012.4571%203.70494%2012.4571%207.5933Z'%20fill='%231C1C1C'/%3e%3c/svg%3e" alt="semicolon" class="w-[28px] mb-8" loading="lazy">
+				<h2 class="font-abhaya text-4xl lg:text-[50px]">Experience</h2>
+			</div>
+			<div class="grid grid-cols-1 lg:grid-cols-2 gap-x-[30px] gap-y-[60px]">
+				<div class="col">
+					<div class="flex items-center">
+						<div class="flex-none font-abhaya text-3xl lg:text-[40px] pr-7">2021.04-2024.04</div>
+						<div class="flex-initial w-full h-[1px] bg-dark hidden lg:inline"></div>
+					</div>
+					<div class="flex items-center mt-5 lg:mt-7.5">
+						<div class="w-[70px] h-[70px] rounded-full overflow-hidden mr-2.5">
+							<img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAIwAAACMBAMAAABc7lwNAAAAKlBMVEXdPHDbPXDmlbHvu87trsTdYorYQHLgd5rZR3fzz939/f388/f66O/33ees+2c+AAACxUlEQVR4Ae2UAWdbURTHz9E2LYZzwt6CDEnbrWawvnyBLQ9V0CDTFSRtTUeRjlHb8LoRmb6BDdMBWSpe0sFYNymADpHBbJBPs3PvW9d0eW1rBuP8tE7zd+/Pv/fdPFAURVEURVEURVEURfknIDNH03D8GdhAR7mA/HsZDWmSrpubJoTVvPwxy7Saz3ubCOB4rpvPXYPRfM51ZwkpNflqBjkpy1xvbkiz0mq12nNlClpCWLKznQFIdE1wC9bNeM+QeCKj4oy0DB+HNaHnvW0gB+88z7tDJDPfbxI43ZwEGV4PTc50pfNtqn+ISc/rvI5rUy9x8uAuBE0kQKRgF/B56EubBQJkTDcRkIgeNEr4Qn7R6VeoFKNhmtipcNBkEIwGxg4KkQZANJIT0PYuwfie7E/0K0BxGqb5DA5qRHFCI/DSPkPK8yMNxGp4/vYJzUQ/XoMAp2uI2LYhYxEN01rUpgRIHGmYlvbFWTpTk9qpYFAvFouLpg1hcs8c8SMJfE6bfJOsRjjrn1puFziw9wEpaBaLN+sU3RvJ0yb/BOdq5F70G4zBXq/X+0FkdW9ANPL56wKm2zY/V2NvMcrZVKtrW0BBu9f54BvNYq1WM0dcq1b9C7WZBjh+Us3a488Ifz6p88/GYRzU7OLLOv+FhsChQQ3Jg6IYDTLeP0PDBFEbZiTTJtXPDLZBZLYaSLn+BTQAxKYN3Pgy2MYMYtHLd+oCGmQuo2jA2W6eaMMCrYQ+3mvQKRo0t1gmB6Err7+yacOjoU/OL80lmzNd7n6f6h7CaZqRSBO95UIHRQNjnQ3RFKzmqn37lQCeyihYzUaMZnzaWpxnWeE6w/IMAT7cQM5uEQjJrAEAU5O5TTQ7siIbAuEItj+QkIyhzAy2DZJMtOvKyEcLh6DIw8RkdyLavYTRaiQWSHJJIkSsKIqiKIqiKIqiKMr/y0/a2yFzkzLCKgAAAABJRU5ErkJggg==" alt="s3-1" loading="lazy">
+						</div>
+						<div class="grid gap-1.5">
+							<div class="font-roboto font-semibold text-xl lg:text-[22px]">玩美移動 — AI/AR 美妝科技</div>
+							<p class="font-roboto text-sm lg:text-base">Assistant Project Manager • 3 years</p>
+						</div>
+					</div>
+					<div class="lg:max-w-[482px] mt-5 lg:mt-7.5">
+						<p class="font-roboto text-sm lg:text-base">負責官網維護，定義並設計 Hyperlink 樣式，持續優化和延伸整體設計方向。同時主導制定 Figma
+							與 ProtoPie 元件，提升設計團隊的協作效率並確保樣式一致性。使用 AI 工具如 MidJourney 和 Stable
+							Diffusion，用於繪圖創作，賦予設計更多可能性。此外，參與新產品的定義過程，將創意與技術融入產品設計，為團隊創造更多價值。</p>
+						<ul class="mt-5 lg:mt-7.5 flex flex-wrap gap-2.5">
+							<li
+								class="inline-block p-1 px-4 rounded-full bg-hashtag-2/10 font-roboto text-xs lg:text-sm">
+								官網維護與優化</li>
+							<li
+								class="inline-block p-1 px-4 rounded-full bg-hashtag-2/10 font-roboto text-xs lg:text-sm">
+								Web AI APP 介面設計</li>
+							<li
+								class="inline-block p-1 px-4 rounded-full bg-hashtag-2/10 font-roboto text-xs lg:text-sm">
+								NFT 頁面開發</li>
+							<li
+								class="inline-block p-1 px-4 rounded-full bg-hashtag-2/10 font-roboto text-xs lg:text-sm">
+								創新技術應用</li>
+						</ul>
+					</div>
+				</div>
+				<div class="col">
+					<div class="font-abhaya text-3xl lg:text-[40px]">2015.08-2020.11</div>
+					<div class="flex items-center mt-5 lg:mt-7.5">
+						<div class="w-[70px] h-[70px] rounded-full overflow-hidden mr-2.5">
+							<img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAIwAAACMCAMAAACZHrEMAAAAZlBMVEX////o9vy/5vb2+PkwruIapd6q3fKGz+77/P3X7/lewOhxyOuX1vBHt+Xa2ttyb3DMzMxbWVkjHyC+vb2pp6iLiYqzsrJDQEGVlJTw7/Dm5uaenJ01MTJRTk+DgYFmZGQqJid7eHlP1A4zAAAIj0lEQVR4AezVVYLsIBCF4UNSP4Um4z69/11ed3nstPFtAMo1DMMwDMMwDMM5C5OOxmxMkqInHV6EIGXIOrxCkeRY0qGlCagejaIDC258V3VYzfiF64Dmwu9q0qHMna/MO2BA06EUvlnWBeJVA4IOo/FFryzXC3Z1cwVEHUTmC7tdY28d2tIMXFLS1lLnC7u7uc/VgN4eIi6F3mLUpirf+Pr49PySc57vb25pIcTeq7Wg7TR+8Ne39f32fre+3Tu5uhvdej7IX6DHu/X6en29KhTVbgA2ayvO76xULwZkla1PQ+U/qmR8kbVPz/Mff/HIX7Km/SfmI21WoqWqDgRbwmhcCKFZwpJA+P+ffK+TRsTjOTpzse6mMpq61dUbyspZO6kHv6TJK3mOSRQmPexPode6pwdiQoINbJJ4LJeZl0h3D5KoHCL6UQLUGJHfi92FLfwSl911UY4ZDNB5fmjlIsxpESa7/GRPVBLYG9qG0w2igRIZVizuvVwXMtQobz/XnywlZqfjPqr0Q2FmuegSuJiu82ihQYYDTt0s3aRSFsjsl0J6CrGo2C8O4zPp0YCix3xVhNOTLFl4ZD/pzjNwN2HEBAEtEnwPOriWr04S4JCm/x9/PHKhJUFuFKnTfmNejQwTI+aXqIyIJXP1tQjb4/8nX6J/GelPmgYXJ7AvG7IoUQhoobdoyEZSNWXHM9UtuSZc256wj3dZC0L/8ESLIghDkCDfNaf0fDgk1z3WFcNkqMgOyJaZEOffdMp0JxcXTEYDSEolLjKF+GCEYOzXrqeVjMI7pshFPFPaNuzdl8p8JTMgw7cyUMm9HcTzZvCE7Hq9pGl6kv/Slx0PBvNCZhXJqYei4zQ84rlnX9nl/4SB6kf3qIyq7MqLIE2UqYEHJM+NWoA8/qtdlCen5lW5GJieM3rO+uVK93IiZ6RZ+u/bpJo8vgYfvrbJEp7Z7J9IapjMSmhsxrUYB4xrm9zgnD17GHaBFL1Z5Fg7A9vRIaOFJ9BW+5VZ0y5yPJMR/i7ayzvAx9OVcEsk7AZ/Z1BvGjgNEUx0Jmplt/JIBHwFnb/Pcu2GDHGb7+O4nNAxlQtF5gb7Y23U01qAjeQqYyq+FjLLRi7sliN8AWr1RbPxjEasmYwhZlhs7qBl8AU0a/qWm9Se0Ssm4xWJ1gRhfhZI2B/ti6bNc1axakWmkptukH6DDLcmLx5yuQyGxYa1CvB625ousD+k4WR6rHI5yJGixVo9Fj6RMpnki5ldb1aFnGgNTDVgktvO9IXUXk2r1zRnGPHgKLc27iNts4+6yLLcyT/zY2mB+tkjfEuk6DadQACh7+8fUcEeEFzwByCQbRm+4leawppBwAuMPHX5V81LVHUj/1Zl7HKaqH18oflokm/iv1atHtSBQu94qP8Y626yHi3VbKyre3gPwwu60F20X95KYYLVZYFo7AfRU3XbPQlT/ynCnnzdQTfVQQHtEasyVqmK/qlxhjeg90ybezF+gN9DKjK791a2HA9KhZperENFsGLE9pOdzXNKBi6Tgk9QzKynrsdGcgWyRQ1ckoQlHnkomZoSUFhUn5Ap7lltR35D2b8NiiE2cuQSSApjyyRGLlhtJEOfbHIsoNdvb9kZtZhHS2AYW27z1q3PRVu4ifOf3ODI8ZqNr3n6yonUMBIzrhdWSefeNQAlOOzbeuMfRe1DtypbQW9wGFFHHfKWHgaFNNfoGTpLdBvKiKqJXErQb13DXLZQayuUnQjPbe1IDA6noR/gNGkQG2H5NoozgcxgiVUZyFqPSPILZ7s3Yya6/nWLmnVPjwya5t7AR26lmn6gii/3sqlk6U1Yb3okErkwYx2UaogH+cmXqsB3eaqRnLiFGMLZZOzGx4Gmt8aEyMSPBx1f9cu+ORWRzGgVXR+9GgOZEfO6h3pt9W/b9INXh1ktI56rNfQk84w5dL7sfIhMHsKgw1EDMpneV5Yeaj/28dxo7RzzeC8FP2oHwWLEwhClIfalht0YTtYVTlB6QWSGmLpVoKGkW4bS2XaWjrO+F9zjhXno77Icxw8Gi4HJGDpd+/jhNR/SeyI34wBzERgOC8+C/tZIBzZEvmZXDdFHpEc/eVsL+A0otEM8tpAmkgj/ehlJGeV9L20bsmiQRSCjiPVkpjb4c/C2i7mdy1C5WA8h/zCAD9E6tuWNPwhkAbrYq7CGBlWs8w3SNWd44Or4Ad2vLiiLYuWS8DeEI6JA3po87AUjHWHuK2UhpHPRLNYXMRyWd25lYj0jX2gm8XfYQEYaEyLekiLCUkQcC0P/3QorIkPQbSztlkuCaOqqg33QRdf1fg4RGolM48tApg4FzFLYjOC6N4NwIVl0nivYF1JHMm1RkyPJpLY3uQrRwSLkrpl8qETaxlIhy6qHL4BtUQvTkDJNsLP3ivQiWjxucZtSQ/N5ph5BXP+0zbrcyDxWc/blxClCxcK78jdaH6/HcEPgds7+uM1WUIRWNESTQF/cF4LuY3ve6F7e9XJMD+GrseQ3ZGSrQaPjbdEQI+gMWg2E/rOIiANt/1lKK+UlIRLikEiAQ3bKfkOm807OWJrYKafYUwWR+BinNCNjZElyZDLnFK4pkcrkb8jQ+YU3UhvfEgst4WOcszQ9BxZShi+dskUZkSbnjMhc4HyDX6B3aDSA/FSL9ZvqJBOnIEma3ejp4ZQxGThm2fGPJU9+aE1BcqxfIf3Xnh2lSAyEQACtNk67qt7/ukubgT1BZmCp9+NnKuVPgxKQBtB77pZtYQBq4UmekSdHO4BK/fkLU9NMxBlegoecL3q0XsAO6Tq/7lODCm6iqX7mloXHiGHWX7FOpp3vBhxwjQjcVsmFx+XL9SyjNOIOY/ZupgzL8Emp1hMmfJqJmnXYNc+2D8vQnDBtuQBJc3xN1msrAJlLzZeV1+UgIiIiIiIiIvpHfgHHsOFoRTANhAAAAABJRU5ErkJggg==" alt="s3-1" loading="lazy">
+						</div>
+						<div class="grid gap-1.5">
+							<div class="font-roboto font-semibold text-xl lg:text-[22px]">好事互動媒體設計</div>
+							<p class="font-roboto text-sm lg:text-base">UI Designer • 5 years</p>
+						</div>
+					</div>
+					<div class="lg:max-w-[482px] mt-5 lg:mt-7.5">
+						<p class="font-roboto text-sm lg:text-base">專精 Web UI 設計，執行超過 196+
+							專案，涵蓋企業官網、行銷頁面、電商平台及內部系統。主導多項重點專案，包括國泰人壽官網行動版、國泰人壽 VIP 形象網站、台灣大哥大官網、TOYOTA 官網、台灣 Pay
+							官網、旺旺友聯產險官網及倍舒痕產品形象網站，成功提升品牌形象與用戶體驗。</p>
+						<ul class="mt-5 lg:mt-7.5 flex flex-wrap gap-2.5">
+							<li
+								class="inline-block p-1 px-4 rounded-full bg-hashtag-2/10 font-roboto text-xs lg:text-sm">
+								多樣化 Web UI 設計</li>
+							<li
+								class="inline-block p-1 px-4 rounded-full bg-hashtag-2/10 font-roboto text-xs lg:text-sm">
+								品牌主視覺創作</li>
+							<li
+								class="inline-block p-1 px-4 rounded-full bg-hashtag-2/10 font-roboto text-xs lg:text-sm">
+								團隊協作與專案推進</li>
+							<li
+								class="inline-block p-1 px-4 rounded-full bg-hashtag-2/10 font-roboto text-xs lg:text-sm">
+								跨部門專案協作</li>
+						</ul>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+	<!-- Works Collection -->
+	<section id="works-section" class="relative w-full bg-white">
+		<div class="container py-15 lg:py-23">
+			<div class="text-center">
+				<img src="data:image/svg+xml,%3csvg%20width='28'%20height='23'%20viewBox='0%200%2028%2023'%20fill='none'%20xmlns='http://www.w3.org/2000/svg'%3e%3cpath%20d='M28%207.5933C27.8476%2012.7289%2025.3714%2017.8644%2020.5714%2023L18.1714%2021.3493C21.3714%2018.1212%2023.0095%2015.4801%2023.0857%2013.4258C23.0095%2012.5455%2022.0952%2011.8852%2020.3429%2011.445C19.9619%2011.3716%2019.581%2011.2616%2019.2%2011.1148C16.6857%2010.1611%2015.4286%208.437%2015.4286%205.94258C15.4286%205.0622%2015.619%204.2185%2016%203.41148C17.0667%201.13716%2018.8571%200%2021.3714%200C22.1333%200%2022.8952%200.110048%2023.6571%200.330144C26.5524%201.28389%2028%203.70494%2028%207.5933ZM12.4571%207.5933C12.3048%2012.8756%209.82857%2018.0112%205.02857%2023L2.74286%2021.3493C5.86667%2018.0478%207.46667%2015.4067%207.54286%2013.4258C7.46667%2012.5455%206.59048%2011.8852%204.91429%2011.445C4.60952%2011.3716%204.26667%2011.2982%203.88571%2011.2249C1.29524%2010.2711%200%208.51037%200%205.94258C0%205.13557%200.152381%204.32855%200.457143%203.52153C1.44762%201.17384%203.2381%200%205.82857%200C6.59048%200%207.35238%200.110048%208.11429%200.330144C11.0095%201.28389%2012.4571%203.70494%2012.4571%207.5933Z'%20fill='%231C1C1C'/%3e%3c/svg%3e" alt="semicolon" class="w-[28px] mx-auto mb-8" loading="lazy">
+				<h2 class="font-abhaya text-4xl lg:text-[50px]">Works Collection</h2>
+			</div>
+			<!-- PC -->
+			<div class="staggered-scroll hidden lg:grid grid-cols-2 gap-x-[40px] mt-7.5 mb-22.5">
+				<!-- 左欄內容 -->
+				<div class="column left overflow-visible translate-y-10">
+					<div class="card mb-13">
+						<a href="product-1.html" rel="noopener noreferrer">
+							<div class="card-img rounded-2xl overflow-hidden mb-4">
+								<img src="./assets/p01-banner.jpg" alt="s4-1" loading="lazy">
+							</div>
+							<div class="card-content">
+								<h4 class="font-abhaya text-2xl lg:text-[26px]">Perfectcorp.com & DemoStore</h4>
+								<p class="font-roboto text-xs lg:text-sm">定義並設計 Hyperlink 樣式，持續優化和延伸整體設計方向。同時主導制定 Figma
+									與 ProtoPie 元件，提升設計團隊的協作效率並確保樣式一致性。</p>
+								<ul class="mt-3 flex flex-wrap gap-1">
+									<li
+										class="inline-block p-1 px-4 rounded-full bg-hashtag-1 font-roboto text-xs lg:text-sm">
+										Web RWD Design</li>
+									<li
+										class="inline-block p-1 px-4 rounded-full bg-hashtag-1 font-roboto text-xs lg:text-sm">
+										UI Design</li>
+									<li
+										class="inline-block p-1 px-4 rounded-full bg-hashtag-1 font-roboto text-xs lg:text-sm">
+										AI Painting</li>
+									<li
+										class="inline-block p-1 px-4 rounded-full bg-hashtag-1 font-roboto text-xs lg:text-sm">
+										Component</li>
+									<li
+										class="inline-block p-1 px-4 rounded-full bg-hashtag-1 font-roboto text-xs lg:text-sm">
+										Visual Design</li>
+								</ul>
+							</div>
+						</a>
+					</div>
+					<div class="card mb-13">
+						<a href="product-3.html" rel="noopener noreferrer">
+							<div class="card-img rounded-2xl overflow-hidden mb-4">
+								<img src="./assets/p03-banner.jpg" alt="s4-3" loading="lazy">
+							</div>
+							<div class="card-content">
+								<h4 class="font-abhaya text-2xl lg:text-[26px]">NFTs Product Showcase</h4>
+								<p class="font-roboto text-xs lg:text-sm">為 NFT
+									設計的產品頁面，專案強調創新的視覺呈現，吸引收藏家與愛好者，並提供直觀的操作體驗，讓使用者輕鬆探索並擁有限量版 NFT，開啟數位藝術的全新世界。</p>
+								<ul class="mt-3 flex flex-wrap gap-1">
+									<li
+										class="inline-block p-1 px-4 rounded-full bg-hashtag-1 font-roboto text-xs lg:text-sm">
+										Web RWD Design</li>
+									<li
+										class="inline-block p-1 px-4 rounded-full bg-hashtag-1 font-roboto text-xs lg:text-sm">
+										UI Design</li>
+									<li
+										class="inline-block p-1 px-4 rounded-full bg-hashtag-1 font-roboto text-xs lg:text-sm">
+										Visual Design</li>
+								</ul>
+							</div>
+						</a>
+					</div>
+					<div class="card mb-13">
+						<a href="product-5.html" rel="noopener noreferrer">
+							<div class="card-img rounded-2xl overflow-hidden mb-4">
+								<img src="./assets/p05-banner.jpg" alt="s4-5" loading="lazy">
+							</div>
+							<div class="card-content">
+								<h4 class="font-abhaya text-2xl lg:text-[26px]">Qwalker</h4>
+								<p class="font-roboto text-xs lg:text-sm">
+									提升保戶日常運動動機，並以輕鬆有趣的方式增加品牌黏著度。介面設計強調易操作與視覺趣味性，鼓勵用戶每日開啟 App 進行步數紀錄、任務挑戰與福利兌換。</p>
+								<ul class="mt-3 flex flex-wrap gap-1">
+									<li
+										class="inline-block p-1 px-4 rounded-full bg-hashtag-1 font-roboto text-xs lg:text-sm">
+										Web RWD Design</li>
+									<li
+										class="inline-block p-1 px-4 rounded-full bg-hashtag-1 font-roboto text-xs lg:text-sm">
+										UI Design</li>
+									<li
+										class="inline-block p-1 px-4 rounded-full bg-hashtag-1 font-roboto text-xs lg:text-sm">
+										UX</li>
+								</ul>
+							</div>
+						</a>
+					</div>
+				</div>
+				<!-- 右欄內容 -->
+				<div class="column right overflow-visible translate-y-4">
+					<div class="card mb-13">
+						<a href="product-2.html" rel="noopener noreferrer">
+							<div class="card-img rounded-2xl overflow-hidden mb-4">
+								<img src="./assets/p02-banner.jpg" alt="s4-2" loading="lazy">
+							</div>
+							<div class="card-content">
+								<h4 class="font-abhaya text-2xl lg:text-[26px]">YouCam Online Editor</h4>
+								<p class="font-roboto text-xs lg:text-sm">一款基於 AI
+									技術的線上編輯工具，提供直觀的界面和強大的影像處理功能。用戶可以輕鬆進行照片修飾、創造圖片、更換髮型、擴充底圖、趣味應用等編輯，提升影像品質。</p>
+								<ul class="mt-3 flex flex-wrap gap-1">
+									<li
+										class="inline-block p-1 px-4 rounded-full bg-hashtag-1 font-roboto text-xs lg:text-sm">
+										Web RWD Design</li>
+									<li
+										class="inline-block p-1 px-4 rounded-full bg-hashtag-1 font-roboto text-xs lg:text-sm">
+										UI Design</li>
+									<li
+										class="inline-block p-1 px-4 rounded-full bg-hashtag-1 font-roboto text-xs lg:text-sm">
+										AI Painting</li>
+									<li
+										class="inline-block p-1 px-4 rounded-full bg-hashtag-1 font-roboto text-xs lg:text-sm">
+										Component</li>
+								</ul>
+							</div>
+						</a>
+					</div>
+					<div class="card mb-13">
+						<a href="product-4.html" rel="noopener noreferrer">
+							<div class="card-img rounded-2xl overflow-hidden mb-4">
+								<img src="./assets/p04-banner.jpg" alt="s4-4" loading="lazy">
+							</div>
+							<div class="card-content">
+								<h4 class="font-abhaya text-2xl lg:text-[26px]">China Airlines Cargo Services</h4>
+								<p class="font-roboto text-xs lg:text-sm">
+									重點改善手機介面的操作體驗。透過重新設計，提升地勤人員與顧客的互動效率，降低送單錯誤率，並加快現場點貨與訂單建立的速度，顯著提升業務流程的流暢度與準確性。</p>
+								<ul class="mt-3 flex flex-wrap gap-1">
+									<li
+										class="inline-block p-1 px-4 rounded-full bg-hashtag-1 font-roboto text-xs lg:text-sm">
+										APP</li>
+									<li
+										class="inline-block p-1 px-4 rounded-full bg-hashtag-1 font-roboto text-xs lg:text-sm">
+										UI Design</li>
+									<li
+										class="inline-block p-1 px-4 rounded-full bg-hashtag-1 font-roboto text-xs lg:text-sm">
+										Visual Design</li>
+								</ul>
+							</div>
+						</a>
+					</div>
+					<div class="card mb-13">
+						<a href="product-6.html" rel="noopener noreferrer">
+							<div class="card-img rounded-2xl overflow-hidden mb-4">
+								<img src="./assets/p06-banner.jpg" alt="s4-6" loading="lazy">
+							</div>
+							<div class="card-content">
+								<h4 class="font-abhaya text-2xl lg:text-[26px]">Cathay United bank ATM @ Family Mart</h4>
+								<p class="font-roboto text-xs lg:text-sm">
+									活動網站以簡潔歡樂的插畫風格，搭配活潑明亮的視覺設計，運用了合作品牌的主色系，圖文搭配的排版設計不僅提升閱讀清晰度，也增添互動趣味，進一步吸引使用者參與活動。</p>
+								<ul class="mt-3 flex flex-wrap gap-1">
+									<li
+										class="inline-block p-1 px-4 rounded-full bg-hashtag-1 font-roboto text-xs lg:text-sm">
+										Web RWD Design</li>
+									<li
+										class="inline-block p-1 px-4 rounded-full bg-hashtag-1 font-roboto text-xs lg:text-sm">
+										Visual Design</li>
+								</ul>
+							</div>
+						</a>
+					</div>
+				</div>
+			</div>
+			<!-- Mobile -->
+			<div class="staggered-scroll grid lg:hidden grid-cols-1 gap-x-[40px] mt-7.5 lg:mb-22.5">
+				<div class="card mb-7.5">
+					<a href="product-1.html" rel="noopener noreferrer">
+						<div class="card-img rounded-2xl overflow-hidden mb-4">
+							<img src="./assets/p01-banner.jpg" alt="s4-1" loading="lazy">
+						</div>
+						<div class="card-content">
+							<h4 class="font-abhaya text-2xl lg:text-[26px]">Perfectcorp.com & DemoStore</h4>
+							<p class="font-roboto text-xs lg:text-sm">定義並設計 Hyperlink 樣式，持續優化和延伸整體設計方向。同時主導制定 Figma
+								與 ProtoPie 元件，提升設計團隊的協作效率並確保樣式一致性。</p>
+							<ul class="mt-3 flex flex-wrap gap-2.5">
+								<li
+									class="inline-block p-1 px-2 rounded-full bg-hashtag-1 font-roboto text-xs lg:text-sm">
+									Web RWD Design</li>
+								<li
+									class="inline-block p-1 px-2 rounded-full bg-hashtag-1 font-roboto text-xs lg:text-sm">
+									UI Design</li>
+								<li
+									class="inline-block p-1 px-2 rounded-full bg-hashtag-1 font-roboto text-xs lg:text-sm">
+									AI Painting</li>
+								<li
+									class="inline-block p-1 px-2 rounded-full bg-hashtag-1 font-roboto text-xs lg:text-sm">
+									Component</li>
+								<li
+									class="inline-block p-1 px-2 rounded-full bg-hashtag-1 font-roboto text-xs lg:text-sm">
+									Visual Design</li>
+							</ul>
+						</div>
+					</a>
+				</div>
+				<div class="card mb-7.5">
+					<a href="product-2.html" rel="noopener noreferrer">
+						<div class="card-img rounded-2xl overflow-hidden mb-4">
+							<img src="./assets/p02-banner.jpg" alt="s4-2" loading="lazy">
+						</div>
+						<div class="card-content">
+							<h4 class="font-abhaya text-2xl lg:text-[26px]">YouCam Online Editor</h4>
+							<p class="font-roboto text-xs lg:text-sm">一款基於 AI
+								技術的線上編輯工具，提供直觀的界面和強大的影像處理功能。用戶可以輕鬆進行照片修飾、創造圖片、更換髮型、擴充底圖、趣味應用等編輯，提升影像品質。</p>
+							<ul class="mt-3 flex flex-wrap gap-1">
+								<li
+									class="inline-block p-1 px-2 rounded-full bg-hashtag-1 font-roboto text-xs lg:text-sm">
+									Web RWD Design</li>
+								<li
+									class="inline-block p-1 px-2 rounded-full bg-hashtag-1 font-roboto text-xs lg:text-sm">
+									UI Design</li>
+								<li
+									class="inline-block p-1 px-2 rounded-full bg-hashtag-1 font-roboto text-xs lg:text-sm">
+									AI Painting</li>
+								<li
+									class="inline-block p-1 px-2 rounded-full bg-hashtag-1 font-roboto text-xs lg:text-sm">
+									Component</li>
+							</ul>
+						</div>
+					</a>
+				</div>
+				<div class="card mb-7.5">
+					<a href="product-3.html" rel="noopener noreferrer">
+						<div class="card-img rounded-2xl overflow-hidden mb-4">
+							<img src="./assets/p03-banner.jpg" alt="s4-3" loading="lazy">
+						</div>
+						<div class="card-content">
+							<h4 class="font-abhaya text-2xl lg:text-[26px]">NFTs Product Showcase</h4>
+							<p class="font-roboto text-xs lg:text-sm">為 NFT
+								設計的產品頁面，專案強調創新的視覺呈現，吸引收藏家與愛好者，並提供直觀的操作體驗，讓使用者輕鬆探索並擁有限量版 NFT，開啟數位藝術的全新世界。</p>
+							<ul class="mt-3 flex flex-wrap gap-1">
+								<li
+									class="inline-block p-1 px-2 rounded-full bg-hashtag-1 font-roboto text-xs lg:text-sm">
+									Web RWD Design</li>
+								<li
+									class="inline-block p-1 px-2 rounded-full bg-hashtag-1 font-roboto text-xs lg:text-sm">
+									UI Design</li>
+								<li
+									class="inline-block p-1 px-2 rounded-full bg-hashtag-1 font-roboto text-xs lg:text-sm">
+									Visual Design</li>
+							</ul>
+						</div>
+					</a>
+				</div>
+				<div class="card mb-7.5">
+					<a href="product-4.html" rel="noopener noreferrer">
+						<div class="card-img rounded-2xl overflow-hidden mb-4">
+							<img src="./assets/p04-banner.jpg" alt="s4-4" loading="lazy">
+						</div>
+						<div class="card-content">
+							<h4 class="font-abhaya text-2xl lg:text-[26px]">China Airlines Cargo Services</h4>
+							<p class="font-roboto text-xs lg:text-sm">
+								重點改善手機介面的操作體驗。透過重新設計，提升地勤人員與顧客的互動效率，降低送單錯誤率，並加快現場點貨與訂單建立的速度，顯著提升業務流程的流暢度與準確性。</p>
+							<ul class="mt-3 flex flex-wrap gap-1">
+								<li
+									class="inline-block p-1 px-2 rounded-full bg-hashtag-1 font-roboto text-xs lg:text-sm">
+									APP</li>
+								<li
+									class="inline-block p-1 px-2 rounded-full bg-hashtag-1 font-roboto text-xs lg:text-sm">
+									UI Design</li>
+								<li
+									class="inline-block p-1 px-2 rounded-full bg-hashtag-1 font-roboto text-xs lg:text-sm">
+									Visual Design</li>
+							</ul>
+						</div>
+					</a>
+				</div>
+				<div class="card mb-7.5">
+					<a href="product-5.html" rel="noopener noreferrer">
+						<div class="card-img rounded-2xl overflow-hidden mb-4">
+							<img src="./assets/p05-banner.jpg" alt="s4-5" loading="lazy">
+						</div>
+						<div class="card-content">
+							<h4 class="font-abhaya text-2xl lg:text-[26px]">Qwalker</h4>
+							<p class="font-roboto text-xs lg:text-sm">
+								提升保戶日常運動動機，並以輕鬆有趣的方式增加品牌黏著度。介面設計強調易操作與視覺趣味性，鼓勵用戶每日開啟 App 進行步數紀錄、任務挑戰與福利兌換。</p>
+							<ul class="mt-3 flex flex-wrap gap-1">
+								<li
+									class="inline-block p-1 px-2 rounded-full bg-hashtag-1 font-roboto text-xs lg:text-sm">
+									Web RWD Design</li>
+								<li
+									class="inline-block p-1 px-2 rounded-full bg-hashtag-1 font-roboto text-xs lg:text-sm">
+									UI Design</li>
+								<li
+									class="inline-block p-1 px-2 rounded-full bg-hashtag-1 font-roboto text-xs lg:text-sm">
+									UX</li>
+							</ul>
+						</div>
+					</a>
+				</div>
+				<div class="card">
+					<a href="product-6.html" rel="noopener noreferrer">
+						<div class="card-img rounded-2xl overflow-hidden mb-4">
+							<img src="./assets/p06-banner.jpg" alt="s4-6" loading="lazy">
+						</div>
+						<div class="card-content">
+							<h4 class="font-abhaya text-2xl lg:text-[26px]">Cathay United bank ATM @ Family Mart</h4>
+							<p class="font-roboto text-xs lg:text-sm">
+								活動網站以簡潔歡樂的插畫風格，搭配活潑明亮的視覺設計，運用了合作品牌的主色系，圖文搭配的排版設計不僅提升閱讀清晰度，也增添互動趣味，進一步吸引使用者參與活動。</p>
+							<ul class="mt-3 flex flex-wrap gap-1">
+								<li
+									class="inline-block p-1 px-2 rounded-full bg-hashtag-1 font-roboto text-xs lg:text-sm">
+									Web RWD Design</li>
+								<li
+									class="inline-block p-1 px-2 rounded-full bg-hashtag-1 font-roboto text-xs lg:text-sm">
+									Visual Design</li>
+							</ul>
+						</div>
+					</a>
+				</div>
+			</div>
+		</div>
+	</section>
+</main>
+
+
+        <footer>
+    <section
+        class="top-footer static flex justify-items-center items-center h-[305px] lg:h-[435px] bg-linear-to-r from-[#F8F5FF] to-[#FBE6F3]">
+        <div class="text-wrapper absolute z-0 select-none w-full">
+            <div class="bg-text font-roboto font-semibold text-[180px] text-decorative">Even if I am a little cog, I
+                still want
+                to make the world beautiful.</div>
+            <div class="bg-text font-roboto font-semibold text-[180px] text-decorative">Even if I am a little cog, I
+                still want
+                to make the world beautiful.</div>
+        </div>
+        <div class="container static z-10">
+            <div class="text-center">
+                <div class="font-abhaya text-4xl lg:text-6xl text-center mb-2">
+                    Thank You of Watching
+                </div>
+                <div class="font-roboto text-sm lg:text-base mb-7">
+                    感謝您耐心閱讀！歡迎透過人力銀行與我聯繫，或將您的訊息寄至 syu3n1118@gmail.com，我將盡快回覆您。
+                </div>
+                <a href="mailto:syu3n1118@gmail.com" target="_blank"
+                    class="font-roboto text-base rounded-full bg-primary text-white py-4 px-6 inline-block border-1 border-transparent hover:text-primary hover:bg-white hover:border-1 hover:border-primary transition duration-200 ease-in">
+                    SEND EMAIL
+                </a>
+            </div>
+        </div>
+    </section>
+    <section class="bottom-footer bg-dark">
+        <div class="container">
+            <p class="font-roboto text-xs text-center text-white py-[18px]">Copyright © 2025 Alani.Syu All Rights
+                Reserved</p>
+        </div>
+    </section>
+</footer>
+    </div>
+    
+
+</body>
+
 </html>
